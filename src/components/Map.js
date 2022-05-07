@@ -4,17 +4,19 @@ import "../components/Map.css";
 const Map = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [details, setDetails] = useState(null);
+  const API_KEY = "a0eb4cfb81fee8e248027d36afdb311d";
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCurrentLocation(position.coords);
     });
   }, []);
+
   console.log(currentLocation);
 
   const getCurrentLocation = () => {
     fetch(
-      `http://api.timezonedb.com/v2.1/get-time-zone?key=VVW6BIP6JLN5&format=json&by=position&lat=${currentLocation.latitude}&lng=${currentLocation.longitude}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${currentLocation.latitude}&lon=${currentLocation.longitude}&exclude=hourly,daily&appid=${API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => setDetails(data));
@@ -28,8 +30,8 @@ const Map = () => {
           <div className="detail">
             {details && (
               <ul className="list-group">
-                <li>City : {details.cityName} </li>
-                <li>Country : {details.countryName}</li>
+                <li>City : {details.name} </li>
+                <li>Country : {details.sys.country}</li>
               </ul>
             )}
           </div>
