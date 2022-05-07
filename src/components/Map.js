@@ -35,6 +35,9 @@ const Map = () => {
       </div>
       <div className="map-content">
         <div className="map-table">table</div>
+        <div className="map-table">table</div>
+        <div className="map-table">table</div>
+        <div className="map-table">table</div>
         <div className="map">map</div>
       </div>
     </div>
