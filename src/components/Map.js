@@ -29,7 +29,7 @@ const Map = () => {
             {details && (
               <ul className="list-group">
                 <li>location : {details.cityName} </li>
-                <li>IP : {details.countryName}</li>
+                <li>Country : {details.countryName}</li>
               </ul>
             )}
           </div>
