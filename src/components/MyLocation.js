@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 
-const MyLocation = () => {
+const MyLocation = (props) => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [details, setDetails] = useState(null);
-  const API_KEY = "a0eb4cfb81fee8e248027d36afdb311d";
+  const API_KEY = "Please use other key";
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCurrentLocation(position.coords);
+      props.onDefaultCenter(
+        position.coords.latitude,
+        position.coords.longitude
+      );
     });
   }, []);
-
-  console.log(currentLocation);
 
   const getCurrentLocation = () => {
     fetch(

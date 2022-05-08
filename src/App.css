@@ -20,7 +20,7 @@
   display: flex;
   text-align: center;
   width: 100%;
-  height: 50vh;
+  height: 100vh;
 }
 .map-table {
   flex: 1;
@@ -29,4 +29,32 @@
 .map {
   flex: 1;
   background-color: lightgreen;
+}
+.suggestion {
+  position: absolute;
+  top: 0;
+  transform: translateY(39px);
+  background: #fff;
+  border: 2px solid rgb(34, 34, 34);
+  width: 100%;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.listItem {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.listItem:hover {
+  background-color: #efefef;
+}
+table {
+  width: 100%;
+}
+table,
+th,
+td {
+  border: 1px solid black;
 }
